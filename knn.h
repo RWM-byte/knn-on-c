@@ -1,7 +1,5 @@
-#ifndef LAB5_H
-#define LAB5_H
-
-#include "variant.h"
+#ifndef KNN5_H
+#define KNN5_H
 #include <stddef.h>
 
 /* ========================= Указатели на функции ========================== */
@@ -14,8 +12,6 @@ typedef double (*DistanceFn)(const void *a, const void *b);
 
 // Класс объекта: неотрицательное число (в датасетах lab5 — 0 или 1).
 typedef int (*ClassFn)(const void *item);
-
-/* ============================ Чётный ISU ID ============================== */
 
 // Динамический массив указателей. Сами объекты в нём не лежат —
 // только их адреса, объекты живут там, где их выделили.
@@ -31,34 +27,10 @@ void *getVectorItem(const struct Vector *vector, size_t index);
 void *removeVectorItem(struct Vector *vector, size_t index);
 void freeVector(struct Vector *vector, FreeFn freeItem);
 
-/* =========================== Нечётный ISU ID ============================= */
-
-struct ListNode {
-    void *item;
-    struct ListNode *next;
-};
-
-// Односвязный список указателей с хвостом: append за O(1).
-struct List {
-    struct ListNode *head;  // первый узел, NULL — список пуст
-    struct ListNode *tail;  // последний узел, NULL — список пуст
-    size_t size;            // сколько узлов в списке
-};
-
-struct List *createList(void);
-int appendListItem(struct List *list, void *item);
-void *getListItem(const struct List *list, size_t index);
-void *removeListItem(struct List *list, size_t index);
-void freeList(struct List *list, FreeFn freeItem);
 
 /* ============================== Коллекция ================================ */
 
-// Коллекция вашего варианта. Всё, что ниже, пишется через Collection.
-#if ISU_ID % 2 == 0
 typedef struct Vector Collection;
-#else
-typedef struct List Collection;
-#endif
 
 /* ================================ kNN ==================================== */
 
@@ -87,10 +59,6 @@ struct Metrics computeMetrics(const int *actual, const int *predicted, size_t co
 int computeMeanStd(const double *values, size_t count, double *mean, double *std);
 
 /* =============================== Датасеты ================================ */
-
-// Для каждого датасета: загрузчик, подготовка признаков по train,
-// расстояние, класс и освобождение одного объекта. Структуры объектов —
-// ваши, в solutions.c.
 
 // data/pokemon.csv: легендарный ли покемон (Legendary == True -> 1).
 Collection *loadPokemon(const char *path);

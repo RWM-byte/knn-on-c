@@ -1,4 +1,4 @@
-#include "lab5.h"
+#include "knn.h"
 #include <math.h>
 #include <ctype.h>
 #include <errno.h>
@@ -7,15 +7,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Здесь пишите функции своего варианта из lab5.h и свои вспомогательные функции.
-// Начните с коллекции: перенесите свой Vector или List из lab4 и замените
-// struct Wine на void * — коллекция больше не знает, что в ней лежит.
-// Чётный ISU ID: createVector, appendVectorItem, getVectorItem, removeVectorItem, freeVector.
-// Нечётный ISU ID: createList, appendListItem, getListItem, removeListItem, freeList.
-// Всем: predictKnn, splitCollection, computeMetrics, computeMeanStd и по пять
-// функций на каждый датасет (load*, prepare*, *Distance, *Class, free*).
-// Структуры объектов датасетов (struct Pokemon и т.д.) объявляйте здесь же.
-// main() писать не нужно: он находится в benchmark.c и tests.c.
 
 #define FEATURES_POKEMON 8
 #define FEATURES_DATES 58

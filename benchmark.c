@@ -1,16 +1,9 @@
-#include "lab5.h"
+#include "knn.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-// Бенчмарк пишете вы (раздел 6 README). Для каждого датасета:
-//   1. загрузить данные (время загрузки — отдельно);
-//   2. для seed = 1..10 (или больше) разбить 75/25 через splitCollection,
-//      вызвать prepare*, классифицировать весь test через predictKnn
-//      для k = 1, 3, 5, 7, 9 и замерить время;
-//   3. посчитать computeMetrics на каждом запуске и вывести mean ± std
-//      (computeMeanStd) по всем запускам, а также использованные seed.
-// Функции коллекции, kNN и датасетов берутся из solutions.c.
+
 
 #define RUNS 10
 
